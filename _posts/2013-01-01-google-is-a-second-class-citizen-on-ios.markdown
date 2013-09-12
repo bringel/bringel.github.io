@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Google is a second class citizen on iOS, and it matters"
+date: 2013-01-01 18:14
+comments: true
+categories: 
+---
+You may have heard about this little feud that's been going on between Cupertino and Mountain View California. You may have smug friends who tell you you really should be using an iPhone. Or maybe you have friends that tell you to ditch Apple's closed platform and come to Google's "open source" operating system. 
+
+Our day to day activities are now determined by our mobile phones. We keep our calendar appointments, check our email, check our social networks, and pass idle time on the small devices sitting in our pockets. Recently, the choice between using an iPhone and using an Android phone has become a choice of ecosystem. On Apple's side, you have the iTunes store with more content you could dream of, the App Store, and the stock iOS apps. On Google's you have Gmail and it's assorted calendar and contact options, and the Google Play store for apps and movies and more. 
+
+You may have also heard about the recent iOS maps "debacle". With the release of it's latest software update, Apple decided against using mapping data from Google, and began using their home-grown solution. Millions of people will tell you that it was an awful choice, and others will tell you that it was fine. Then Google came out with a Maps application of their own and the internet made it sound like this was the moment everyone in the whole world had been waiting for. Bloggers everywhere switched from the awful Apple application and found salvation in the Android-esque offering from Mountain View.
+
+And since they had already started writing their articles about how they had switched away from one stock iOS app, many more blog posts, [like this one from Business Insider](http://www.businessinsider.com/google-is-attacking-apple-from-the-inside-out-and-its-working-2012-12), were written about how they seldom used any of the stock iOS applications any more. Many writers are heralding the fall of the stock iOS application as a triumph for Google and total loss for Apple.
+
+Guess what? Neither company cares. Google is in the business solely to serve advertisements to your eyeballs and collect data to make those ads "better". Apple is in the business to sell hardware, and doesn't care if you never open any apps aside from the phone and messaging apps. And here's the kicker, even if you find the feature set of the stock applications to be limited, the integration is what makes them killer. When everything you do on your phone ties together, the experience is better. Links on iOS are always going to open in Safari. Email addresses are always going to pop you into the Mail application. Addresses are going to take you to the maps application. Ignoring the fact that Chrome is an overall slower browser on iOS because of the limitations on UIWebViews, I want to use the browser that other links are going to open in, so that all my browsing is in one place. I've used other mail applications that had better integration with Gmail, but I came back because the integration wasn't there. At the end of the day, the "inside-out attack" Google is making according to Business Insider will fail. Mobile phones are operated with one hand, in short time spans, and that's when the integration with the core operating system is key.

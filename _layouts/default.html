@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home Template for Bootstrap 3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ site.url }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="{{ site.url }}/css/syntax.css">
+    
+  </head>
+
+  <body>
+
+    {% include navbar.html %}
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8">
+        
+        {{ content }}
+        
+      
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Company 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Make sure to add jQuery - download the most recent version at http://jquery.com/ -->
+    <script src="{{ site.url }}/bootstrap/js/jquery.js"></script>
+    {% include bootstrap.js.html %}
+
+  </body>
+</html>

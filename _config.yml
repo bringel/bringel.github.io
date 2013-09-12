@@ -1,0 +1,22 @@
+name: Caffeinated Hacker
+markdown: redcarpet
+pygments: true
+
+paginate: 5
+##Settings for jekyll-rake-boilerplate templates and such
+post:
+  template: _post.txt
+  extension: md
+page:
+  template: _page.txt
+  extension: md
+
+editor: vim
+git:
+  branch: master
+
+#Comments
+livefyre_id: 317518
+
+##Excerpts let you do some cool stuff
+excerpt_seperator: "<!--more-->"
