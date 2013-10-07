@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+ruby '2.0.0'
+
+gem 'jekyl'
+gem 'redcarpet'
+gem 'rake'
+gem 'yaml'
+gem 'fileutils'
+gem 'rbconfig'
+gem 'digest/md5'
+gem 'uglifier'
+gem 'erb'

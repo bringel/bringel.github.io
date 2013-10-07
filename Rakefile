@@ -4,6 +4,9 @@ require 'rake'
 require 'yaml'
 require 'fileutils'
 require 'rbconfig'
+require 'digest/md5'
+require 'uglifier'
+require 'erb'
 
 # == Configuration =============================================================
 
@@ -226,7 +229,6 @@ end
 #http://brizzled.clapper.org/blog/2012/03/05/using-twitter-bootstrap-with-jekyll/#what-rake-has-to-do
 
 def different?(path1, path2)
-  require 'digest/md5'
   different = false
   if File.exist?(path1) && File.exist?(path2)
     path1_md5 = Digest::MD5.hexdigest(File.read path1)
@@ -246,9 +248,7 @@ BOOTSTRAP_CUSTOM_LESS = 'bootstrap/less/custom.less'
 task :bootstrap => [:bootstrap_js, :bootstrap_css]
 
 task :bootstrap_js do
-  require 'uglifier'
-  require 'erb'
-
+  
   template = ERB.new %q{
           <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
           <% paths.each do |path| %>
