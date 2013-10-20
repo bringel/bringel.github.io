@@ -1,63 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>{{ post.title }}</title>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="google-site-verification" content="f1OtvP7JCHm6M9Ca7vMcFg3q-1NEOvDMcSKfKlVW_pA" />
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Octopress on a Raspberry Pi  | macjasp</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ site.url }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<meta name="author" content="macjasp"> 
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="{{ site.url }}/css/syntax.css">
+<meta name="description" content="Running an Octopress Blog on a Raspberry Pi"> <meta name="keywords" content="raspberry pi, octopress, blog, web server, nginx, hosting, dynamic dns, cloudflare">
 
-    {% include mixpanel.html %}
-  </head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <body>
+	<link href="/atom.xml" rel="alternate" title="macjasp" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
 
-    {% include navbar.html %}
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
 
-    <div class="container">
+          if (id) {
+            el = $('#' + id);
 
-      <div class="row">
-        <div class="col-lg-8">
-        
-          <!-- the actual blog post: title/author/date/content -->
-          <h1>{{ page.title }}</h1>
-          <hr>
-          <p><span class="glyphicon glyphicon-time"></span> Posted on {{ page.date | date_to_string }}</p>
-          <hr>
-          
-         {{ content}} 
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
 
-          <hr>
-          
-          {% include sharing.html %}
 
-          {% include disqus.html %}
-        
-              
-      <hr>
+<body>
+	<header id="header" class="inner"><h1><a href="/">macjasp</a></h1>
+<h4>the home of</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:macjasp.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Octopress on a Raspberry Pi</h2>
+	<div class="entry-content"><p>Sitting in the corner of my study is a Raspberry Pi, attached to my home network through a wireless connection provided by an Edimax EW-7811UN 150Mbps Wireless Nano USB Adapter<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup>.</p>
+
+<center><img src="https://dl.dropboxusercontent.com/u/22370970/blogimages/RpiandEdimax.JPG" title="My Raspberry Pi Model B with an Edimax WiFi USB Dongle attached which serves this blog." ></center>
+
+
+<p>I absolutely adore the little device and it&#8217;s versatility means I&#8217;ve been able to mess around and play to my hearts content over the last few months. Amongst the vast array of software, hacks and peripherals you can add to the device, to date I&#8217;ve been able to;</p>
+
+<ul>
+<li>Turn it in to an <a href="http://lifehacker.com/5978594/turn-a-raspberry-pi-into-an-airplay-receiver-for-streaming-music-in-your-living-room">AirPlay Receiver</a> using a Dynamode USB Sound Card.</li>
+<li>Create an <a href="http://willitscript.com/post/40357408648/using-your-pi-as-a-l2tp-vpn-server">L2TP VPN server</a> for my iOS devices</li>
+<li>Create a <a href="http://www.robertsetiadi.net/installing-transmission-in-raspberry-pi/">Transmission torrent server</a></li>
+<li>Setup a <a href="http://everbit.wordpress.com/2013/04/01/minidlna-on-the-raspberry-pi/">DLNA Server</a> for streaming movies to my PS3</li>
+<li><a href="https://mug.im/blog/2013/01/20/how-to-deploy-octopress-on-a-raspberrypi/">Installed Octopress</a> for this very blog.</li>
+</ul>
+
+
+<h3>Self Hosting</h3>
+
+<p>This week I&#8217;ve also moved hosting of this blog across to the Pi and away from Github Pages. I&#8217;m sure the Pi will cope quite admirably with the trivial amount of traffic this blog receives on a daily basis and with extra protection provided by <a href="http://www.cloudflare.com">CloudFlare</a> I don&#8217;t have any real concerns over performance, in fact it should run extremely well.</p>
+
+<p>I decided upon <a href="http://nginx.org">Nginx</a> as it&#8217;s web server, being fairly lightweight and <a href="http://www.erikminkel.com/2012/12/17/host-your-own-jekyll-based-blog-on-a-raspberry-pi/">relatively trivial to configure with Octopress</a> so it&#8217;s now a simple case of watching the Pi&#8217;s performance closely in the coming weeks.</p>
+
+<p>Dynamic DNS is the only piece of this self-hosting puzzle not satisfactorily resolved as yet<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup>. I&#8217;m currently using a <a href="http://gianpaj.com/post/34222308317/raspberry-pi-with-cloudflares-dynamic-dns-ddclient">modified version of ddclient</a> with a CloudFlare hack which seems to work in verbose/debug mode, although time will tell if that really is the case on an automated basis once my external IP changes in the coming days/weeks.</p>
+
+<h3>Workflow</h3>
+
+<p>Octopress and a Raspberry Pi fit perfectly together, I can be completely mobile yet still write content (and include photographs) and publish them to this blog with ease using a combination of the following software and workflow;</p>
+
+<ol>
+<li>Create a new post content using <a href="http://www.iawriter.com">iA Writer</a> before saving to Dropbox.<sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup></li>
+<li>SSH to the Pi using a brilliant bit of software called <a href="http://panic.com/prompt/">Prompt</a>.</li>
+<li>Download the newly created post to the RPi&#8217;s Octopress _posts folder using <a href="http://www.andreafabrizi.it/?dropbox_uploader">Dropbox Uploader</a>.</li>
+<li>Finally, using Prompt again, perform a &#8216;rake generate&#8217; to update the content on the Pi&#8217;s NGinx web server and present it to the world.</li>
+</ol>
+
+
+<p>It&#8217;s also worth mentioning another great iOS App called <a href="http://www.textasticapp.com">Textastic</a> which enables me to also modify my Octopress source code and theme whilst mobile too.</p>
+
+<p>This combination of Apps and mobile devices is actually making my blogging a pleasure.</p>
+
+<div class="footnotes">
+    <ol>
+        <li id='fn:1'><p>I highly recommend this USB Adaptor if you want to go wireless with your Pi.
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p>Why don&#8217;t British Telecom give the option of a static IP with their Infinity product?
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li><li id='fn:3'><p>At this point if I was to include a photo in my post I&#8217;d save this to the Public folder on my Dropbox account.
+<a href='#fnref:3' rev='footnote'>↩</a></p>
+</li>
+    </ol>
+</div>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-28T14:30:00+01:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/raspberry-pi/'>raspberry pi</a>
+
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner"><a href="http://twitter.com/macjasp">Twitter</a> •
+<a href="https://github.com/macjasp">Github</a> • 
+<a href="http://www.flickr.com/photos/-macjasp/">Flickr</a>  • 
+<a href="http://instagram.com/macjasp">Instagram</a>
+<br>
+Copyright &copy; 2013
+
+    macjasp
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'macjasp';
       
-      <!-- <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>Copyright &copy; Company 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
-          </div>
-        </div>
-      </footer> -->
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://macjasp.github.io/octopress-on-a-raspberry-pi/';
+        var disqus_url = 'http://macjasp.github.io/octopress-on-a-raspberry-pi/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
-    </div><!-- /.container -->
 
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- Make sure to add jQuery - download the most recent version at http://jquery.com/ -->
-    <script src="{{ site.url}}/bootstrap/js/jquery.min.js"></script>
-    {% include bootstrap.js.html %}
-    {% include sharing-js.html %}
-  </body>
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-37790901-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
 </html>
