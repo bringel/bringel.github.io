@@ -1,5 +1,8 @@
-$font-default: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Arial, sans-serif;
-$font-mono: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Arial, sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+$font-default: "Helvetica Neue", Arial, sans-serif;
+
+$font-mono: "Inconsolata", "Helvetica Neue", Arial, sans-serif;
 
 $font-icon: FontAwesome;
 $font-icon-path: "/font/fontawesome-webfont";
