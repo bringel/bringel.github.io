@@ -31,11 +31,11 @@
 		}
 
 		a:link,a:visited {
-			border-bottom:1px solid rgba(191,2,34,0);
+			border-bottom:1px solid rgba(9,92,0,0);
 		}
 
 		a:hover {
-			border-bottom:1px solid #bf0222;
+			border-bottom:1px solid $color-main;
 		}
 		.date, .tags, .comments{
 			padding-left: 30px;

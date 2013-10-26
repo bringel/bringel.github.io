@@ -15,7 +15,7 @@
 
 /* line 7, ../sass/base/_layout.scss */
 body {
-  font-family: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Inconsolata", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
@@ -66,7 +66,7 @@ h3 {
 /* line 42, ../sass/base/_layout.scss */
 a {
   text-decoration: none;
-  color: #bf0222;
+  color: #095c00;
   -webkit-transition: border .25s linear;
   -moz-transition: border .25s linear;
   -ms-transition: border .25s linear;
@@ -518,7 +518,7 @@ a:hover {
   border: 1px solid #dddddd;
   border-right: none;
   color: #999999;
-  font: 13px "Helvetica Neue", Arial, sans-serif;
+  font: 13px "Inconsolata", "Helvetica Neue", Arial, sans-serif;
   height: 30px;
   width: 100%;
   padding: 0 10px;
@@ -571,7 +571,7 @@ a:hover {
   background: #f2f2f2;
   color: #999999;
   border: 1px solid #dddddd;
-  font: 13px "Helvetica Neue", Arial, sans-serif;
+  font: 13px "Inconsolata", "Helvetica Neue", Arial, sans-serif;
   padding: 6px 15px 6px 35px;
   width: 100px;
   -webkit-transition: 0.3s;
@@ -831,7 +831,7 @@ article .entry-content {
 /* line 39, ../sass/parts/_article.scss */
 article .entry-content a {
   text-decoration: none;
-  color: #bf0222;
+  color: #095c00;
   -webkit-transition: border .25s linear;
   -moz-transition: border .25s linear;
   -ms-transition: border .25s linear;
@@ -840,11 +840,11 @@ article .entry-content a {
 }
 /* line 49, ../sass/parts/_article.scss */
 article .entry-content a:link, article .entry-content a:visited {
-  border-bottom: 1px solid rgba(191, 2, 34, 0);
+  border-bottom: 1px solid rgba(9, 92, 0, 0);
 }
 /* line 53, ../sass/parts/_article.scss */
 article .entry-content a:hover {
-  border-bottom: 1px solid #bf0222;
+  border-bottom: 1px solid #095c00;
 }
 /* line 58, ../sass/parts/_article.scss */
 article .entry-content .more-link {
@@ -1045,11 +1045,11 @@ article .entry-content .video-container iframe, article .entry-content .video-co
 }
 /* line 33, ../sass/parts/_post.scss */
 .post .meta a:link, .post .meta a:visited {
-  border-bottom: 1px solid rgba(191, 2, 34, 0);
+  border-bottom: 1px solid rgba(9, 92, 0, 0);
 }
 /* line 37, ../sass/parts/_post.scss */
 .post .meta a:hover {
-  border-bottom: 1px solid #bf0222;
+  border-bottom: 1px solid #095c00;
 }
 /* line 40, ../sass/parts/_post.scss */
 .post .meta .date, .post .meta .tags, .post .meta .comments {
@@ -1373,7 +1373,7 @@ figure.code td.code {
 }
 /* line 146, ../sass/parts/_syntax.scss */
 .entry-content .gist .gist-file .gist-meta {
-  font: 300 0.9em "Helvetica Neue", Arial, sans-serif;
+  font: 300 0.9em "Inconsolata", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
   margin: 0 -16px -6px;
   padding: 5px 15px;

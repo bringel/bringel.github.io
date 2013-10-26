@@ -19,8 +19,10 @@ title: Your New Jekyll Site
 				<div class="date">
 					<time datetime="{{ post.date | date_to_xml_schema }}" pubdate data-updated="true">{{ post.date | date_to_long_string }}</time>
 				</div>
-				<div class="tags">
-					<a class='category' href='/blog/categories/apps/'>apps</a>, <a class='category' href='/blog/categories/ios/'>ios</a>, <a class='category' href='/blog/categories/photography/'>photography</a>
+        <div class="tags">
+          {% for tag in post.tags %}
+          <a class='category' href='#'>{{ tag }}</a>
+          {% endfor %}
 				</div>
 
 			</div>
