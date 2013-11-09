@@ -1,4 +1,4 @@
-$header-height: 30px;
+	$header-height: 30px;
 
 #header{
 	height: $header-height;
@@ -16,7 +16,7 @@ $header-height: 30px;
 	margin-bottom:40px;
 	}
 	a{
-		color: $color-gray01;
+		color: #333;
 		@include transition(color 0.3s);
 		&:hover{
 			color: $color-main;
