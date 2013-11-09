@@ -2,6 +2,8 @@ title: Caffeinated Hacker
 markdown: redcarpet
 pygments: true
 
+url: http://bringel.github.io
+
 paginate: 5
 ##Settings for jekyll-rake-boilerplate templates and such
 post:
