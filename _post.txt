@@ -1,4 +1,6 @@
 ---
 title: 
 layout: post
+tags:
+comments: true
 ---
