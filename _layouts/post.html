@@ -8,25 +8,26 @@
 
   {% include header.html %}
 
-  <div id="content" class="inner"><article class="post">
+  <div id="content" class="inner">
+    <article class="post">
     <h2 class="title">{{ page.title }}</h2>
+        <div class="meta">
+      <div class="date">
+        <time datetime="{{ page.date }}" pubdate data-updated="true">{{ page.date | date_to_long_string}}</time></div>
+      <div class="tags">
+          {% for tag in page.tags %}
+            <a class='category' href='#'>{{ tag }},</a>
+          {% endfor %}
+      </div>
+
+  </div>
     <div class="entry-content">
       {{ content }}
     </div>
 
 
-    <div class="meta">
-      <div class="date">
-        <time datetime="{{ page.date }}" pubdate data-updated="true">{{ page.date | date_to_long_string}}</time></div>
-      <div class="tags">
-          {% for tag in page.tags %}
-            <a class='category' href='#'>{{ tag }}</a>
-          {% endfor %}
 
-
-      </div>
-
-    </div></article>
+    </article>
 
     {% include sharing.html %}
 

@@ -1,6 +1,6 @@
 .post{
 	 .entry-content{
-		margin-left: 260px;
+		//margin-left: 260px;
 		@media screen and (max-width: 620px){
 			margin-left: 0px;
 		}
@@ -9,12 +9,13 @@
 			}
 	}
 	.meta{
-		position: absolute;
+		//position: absolute;
 		top: 115px;
 		line-height: 2;
 		font-size: 0.9em;
 		color: #333;
-		width: 170px;
+		//width: 170px;
+		border-bottom: 1px solid #dddddd;
 		@media screen and (max-width: 620px){
 			margin-top: 15px;
 			position: static;
