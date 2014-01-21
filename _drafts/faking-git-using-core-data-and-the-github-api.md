@@ -10,7 +10,7 @@ Anyways, There were a few options to pick from to work with Github in order to w
 
 Obviously I went with option number three, otherwise I wouldn't be writing this post. Why? Well because reasons and stuff
 
-* I thought that it would be easier to not use the local filesystem for this project. I know that Linus has his reasons for the way that git is designed, but I figured this would be a good learning opportunity for me to not do it that way.
+* I thought that it would be easier to not use the local filesystem for this project. It's much easier to query the database to get the correct file than having to deal with constructing file paths. This way I can get every file that exists in a specific directory (which is kinda important when you're working with jekyll) without having to use `NSFileManager`.
 
 * I also prefer to work with my own objects when I can. Should I get used to working with other people's code? Yes. Am I going to do it right now? Probably not
 
@@ -22,7 +22,7 @@ Obviously I went with option number three, otherwise I wouldn't be writing this 
 
 In order to really sink my teeth into the project, and to figure out how to replicate the git database structure in my Core Data design, I spent a lot of time going through the git documentation. Specifically [Chapter 9](http://git-scm.com/book/en/Git-Internals) of the git book. I must say, I learned a whole lot about the way that files are stored in git by reading this, and I might even say that it made me a better git user in the process. But enough rambling. Instead of posting the headers, I'll just post the current state of the Core Data Object Model:
 
-![Graph View of the Core Data Managed Object Model]({{ site.url }}/images/core_data_object_graph.png)
+![Graph View of the Core Data Managed Object Model]({{ site.url }}/images/core_data_model_graph.png)
 
 I've created a class called `SLGithubSessionManager` which is a subclass of `AFHTTPSessionManager` which handles setting up AFNetworking to use the Github API.
 
@@ -377,3 +377,7 @@ NSString *commitGetString = [NSString stringWithFormat:@"/repos/%@/%@/git/commit
 
 [manager GET:commitGetString parameters:@{@"access_token": token} success:commitSuccessBlock failure:commitFailBlock];
 {% endhighlight %}
+
+There is a lot of code here, but most of it is pretty simple. What actually kicks the process off is line 151, which will get the information for the root of the repository from Github. Once the request for the root tree comes back, we look through each of the objects in the response and check their type. If they are a tree, then we want to recursively use our `treeSuccessBlock` to get the rest of the data for that child tree. If we get to a blob, then we just want to create the entity and call it a day. Before we make another request to get the new data in either case we go ahead and set up the entity relationships. 
+
+And that's really all there is to it. It's not the most complicated bit of code in the world, but I thought it was neat that I could replicate a program that I'm familiar with using two frameworks (`AFNetworking` and Core Data) that I haven't spent that much time with. I'm planing on taking this further and using the API to make commits, and combining that with autosaving that should be pretty effortless to use.
