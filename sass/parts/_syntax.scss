@@ -38,35 +38,32 @@ $solarized: light !default;
   $base3:   $_base03;
 }
 
-$pre-bg: $base3;
 $pre-border: $base03;
 
 
 .highlight{
 
-		  background-color:$base02;
+		  background-color:$base3;
 		  color:$base1;
 		  overflow-x:auto;
-
-
 		 .c{
-		  color:$base01 !important;
+		  color:$solar-orange !important;
 		  font-style:italic !important
 		}
 		 .cm{
-		  color:$base01 !important;
+		  color:$solar-orange !important;
 		  font-style:italic !important
 		}
 		 .cp{
-		  color:$base01 !important;
+		  color:$solar-yellow !important;
 		  font-style:italic !important
 		}
 		 .c1{
-		  color:$base01 !important;
+		  color:$solar-orange !important;
 		  font-style:italic !important
 		}
 		 .cs{
-		  color:$base01 !important;
+		  color:$solar-orange !important;
 		  font-weight:bold !important;
 		  font-style:italic !important
 		}
@@ -75,7 +72,7 @@ $pre-border: $base03;
 		  background:none !important
 		}
 		 .k{
-		  color:$solar-orange !important
+		  color:$solar-magenta !important
 		}
 		 .o{
 		  color:$base1 !important;
@@ -153,7 +150,7 @@ $pre-border: $base03;
 		  color:$solar-cyan !important
 		}
 		 .n{
-		  color:$solar-blue !important
+		  color:$solar-violet !important
 		}
 		 .na{
 		  color:$solar-blue !important
@@ -162,7 +159,7 @@ $pre-border: $base03;
 		  color:$solar-green !important
 		}
 		 .nc{
-		  color:$solar-magenta !important
+		  color:$solar-green !important
 		}
 		 .no{
 		  color:$solar-yellow !important
@@ -178,7 +175,7 @@ $pre-border: $base03;
 		  font-weight:bold !important
 		}
 		 .nf{
-		  color:$solar-blue !important;
+		  color:$base01 !important;
 		  font-weight:bold !important
 		}
 		 .nn{
@@ -225,7 +222,7 @@ $pre-border: $base03;
 		  color:#009999
 		}
 		 .s{
-		  color:$solar-cyan !important
+		  color:$solar-red !important
 		}
 		 .sb{
 		  color:#d14
