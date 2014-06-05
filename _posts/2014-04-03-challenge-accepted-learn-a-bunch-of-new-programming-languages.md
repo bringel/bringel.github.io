@@ -1,7 +1,7 @@
 ---
 title: "Challenge Accepted: Learn a bunch of new programming languages" 
 layout: post
-tags: programming, learning
+tags: [programming, learning]
 comments: true
 ---
 # I'm giving myself a challenge 
